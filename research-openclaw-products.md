@@ -254,7 +254,77 @@ Manus 是由 Monica.im 团队创建的自主 AI agent 产品，2025 年底被 Me
 
 ---
 
-## 六、最终结论
+## 六、更广泛的竞争格局：不只是 Claw 生态
+
+除了 OpenClaw 直接衍生的云产品，还有大量 AI agent 平台和托管服务在争夺同一批用户。
+
+### 6.1 No-Code AI 聊天机器人平台（成熟玩家）
+
+| 平台 | 渠道支持 | 定价 | 特点 |
+|------|----------|------|------|
+| **Botpress** | 50+ 集成（TG/Slack/Discord/WhatsApp 等） | Free → Plus $89/月 → Team $495/月 | 最强多渠道，企业级 |
+| **Voiceflow** | Web/电话/API | Pro $60/editor/月 | 适合设计协作 |
+| **Chatfuel** | WhatsApp/FB Messenger/Instagram | $20/月起 | Meta 生态专精 |
+| **ChatBotKit** | Slack/Discord/WhatsApp/TG/Web | ~$65/月起 | AI agent 基础设施 |
+| **Lindy AI** | 6000+ 集成 | Starter $8/月 → Pro $49.99/月 | 更偏 AI 工作流 |
+
+### 6.2 开源 AI 框架的托管版
+
+| 框架 | 自托管 | 云托管 | 消息平台集成 | 云定价 |
+|------|--------|--------|-------------|--------|
+| **Dify** | 开源 | Dify Cloud | API 为主，TG 社区插件 | Free → Pro $59/月 → Team $159/月 |
+| **Coze（字节跳动）** | 2025.7 开源 | Coze Cloud | 飞书/TG/Discord/Slack/WhatsApp | 免费层 + 付费 |
+| **AstrBot** | 开源（25K+ stars） | Hostinger VPS | TG/Discord/Slack/微信/QQ/钉钉/飞书/LINE | 自托管成本 |
+| **LangBot** | 开源 | LangBot Cloud | Discord/Slack/企微/钉钉/飞书 | 月费制 |
+| **CoPaw（阿里）** | Apache 2.0 | 仅自托管 | Discord/Slack/钉钉/飞书/iMessage | N/A |
+
+### 6.3 中国大厂的 AI Agent 产品
+
+| 厂商 | 产品 | 平台 | 说明 |
+|------|------|------|------|
+| **腾讯** | WorkBuddy | 微信/企微/飞书/钉钉 | 2026.3 上线的"数字员工"，自然语言执行任务 |
+| **阿里** | Wukong | 钉钉原生，Slack/Teams 计划中 | AI agent 平台，钉钉 2000 万+ 企业用户 |
+| **阿里** | QoderWork | 微信/钉钉/飞书 | 移动端 AI 扩展 |
+| **字节** | Coze | 飞书/TG/Discord/Slack/WhatsApp | 核心已开源，飞书深度集成 |
+
+### 6.4 中国云厂商的一键部署服务（2026 年 1-2 月）
+
+- **阿里云**：一键部署 OpenClaw（1 月下旬）
+- **火山引擎（字节）**：快速部署 + 飞书集成（1 月 28 日）
+- **腾讯云**：Lighthouse 应用模板（1 月 30 日）
+- **百度智能云**：2 月 2 日加入
+
+### 6.5 AI 网关即服务
+
+| 产品 | 类型 | 特点 |
+|------|------|------|
+| **Cloudflare AI Gateway** | 托管 SaaS | 边缘代理，缓存，限流，统一计费 |
+| **Portkey** | 开源 + 托管 | 治理/可观测/成本控制，日处理 2T+ tokens |
+| **Kong AI Gateway** | 托管/自托管 | LLM + MCP 统一 API |
+
+---
+
+## 七、市场空白分析
+
+基于全面调研，目前市场存在以下明确空白：
+
+### 空白 1：统一覆盖西方 + 中国消息平台的托管服务
+没有一个托管平台能同时顺滑覆盖 Telegram + Discord + Slack + WhatsApp **和** 飞书 + 钉钉 + 企微。AstrBot 和 LangBot 作为开源项目最接近，但托管服务很初级。
+
+### 空白 2：$50-150/月档位的多渠道 Agent 托管
+- 低端：单渠道机器人（Chatfuel $20/月）
+- 高端：企业平台（Botpress Team $495/月）
+- **中间档严重缺位**：多渠道、生产级、全托管的 AI agent 托管
+
+### 空白 3：AI 网关 + Agent 部署一体化
+AI 网关（Cloudflare、Portkey）管 LLM 流量治理；Agent 平台（Botpress、Coze）管部署。**没有产品把两者合一**。
+
+### 空白 4：面向非中国企业的飞书/钉钉 Agent 服务
+外企在中国运营需要飞书/钉钉机器人，但现有方案要么只有中文，要么需要深度平台知识。
+
+---
+
+## 八、最终结论
 
 ### 回答原始问题："有什么产品能免部署直接用上 OpenClaw？"
 
@@ -267,12 +337,19 @@ Manus 是由 Monica.im 团队创建的自主 AI agent 产品，2025 年底被 Me
 
 ### 回答延伸问题："自己做一个还有可行性吗？"
 
-**有条件的可行。**
+**有条件的可行。最值得切入的空白点：**
 
-- 如果做"又一个 OpenClaw hosting"——不建议，已经太拥挤
-- 如果做"模型中立 + 零配置渠道 + 海外市场"——有差异化空间
-- 如果做"垂直行业 OpenClaw 私有化"——有企业付费意愿
-- 核心挑战不是技术，而是：获客、留存、与大厂的竞争
+1. **模型中立 + 零配置渠道 + 海外市场** —— 现有大厂产品都绑自家模型，海外空位大
+2. **统一覆盖中西方消息平台（TG + 飞书 + 钉钉）** —— 目前没有产品做好这件事
+3. **$50-150/月的多渠道全托管中间档** —— 市场明显缺位
+4. **垂直行业 OpenClaw 私有化** —— 有企业付费意愿
+
+**不建议做的方向：**
+- 又一个通用 OpenClaw hosting（太拥挤）
+- 和 Manus 竞争统一成品 agent（Meta $20 亿量级）
+- 强绑定单一模型（和大厂没法比）
+
+**核心挑战不是技术，而是：获客、留存、与大厂的竞争。**
 
 ---
 
@@ -294,3 +371,17 @@ Manus 是由 Monica.im 团队创建的自主 AI agent 产品，2025 年底被 Me
 - [NVIDIA NemoClaw](https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw)
 - [OpenClaw Statistics 2026](https://www.gradually.ai/en/openclaw-statistics/)
 - [36Kr - 大厂"养龙虾"](https://eu.36kr.com/en/p/3717904404936072)
+- [Botpress vs Voiceflow 对比](https://chatimize.com/botpress-vs-voiceflow/)
+- [Dify vs Flowise vs Langflow 2026](https://toolhalla.ai/blog/dify-vs-flowise-vs-langflow-2026)
+- [Dify Pricing](https://dify.ai/pricing)
+- [Coze Studio on GitHub](https://github.com/coze-dev/coze-studio)
+- [AstrBot on GitHub](https://github.com/AstrBotDevs/AstrBot)
+- [LangBot Cloud](https://langbot.app/en)
+- [腾讯 WorkBuddy](https://abit.ee/en/artificial-intelligence/tencent-workbuddy-wechat-ai-agent-openclaw-tencent-cloud-2026-ai-office-automation-en)
+- [阿里 Wukong](https://www.technology.org/2026/03/17/alibaba-launches-wukong-an-ai-agent-platform-with-slack-and-teams-on-the-roadmap/)
+- [阿里 CoPaw](https://www.i-scoop.eu/copaw-alibaba/)
+- [RunMyClaw AI Agent Hosting](https://runmyclaw.ai/blog/ai-agent-hosting-buyers-guide)
+- [ChatBotKit](https://chatbotkit.com/)
+- [Lindy AI Pricing](https://www.lindy.ai/pricing)
+- [Portkey AI Gateway](https://thenewstack.io/portkey-gateway-open-source/)
+- [OpenClaw Direct Managed Hosting](https://markets.financialcontent.com/stocks/article/abnewswire-2026-2-25-openclaw-direct-launches-its-fully-managed-hosting-platform-for-ai-agents-with-zero-infrastructure-overhead)
